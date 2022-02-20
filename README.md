@@ -30,7 +30,7 @@ require 'slack_notifiee'
 # Enable this gem before using slack-notifier.
 SlackNotifiee.enable
 
-# Send a notification. (Accutually, all notifications are not sent to slack but stored local file.)
+# Send a notification. (Accutually, all notifications are not sent to slack but stored as local file.)
 notifier = Slack::Notifier.new('https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX')
 notifier.ping 'Hello, world!'
 
