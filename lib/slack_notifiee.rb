@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "slack_notifiee/http_client"
-require_relative "slack_notifiee/slack_notifier_extension"
-require_relative "slack_notifiee/version"
+require_relative 'slack_notifiee/http_client'
+require_relative 'slack_notifiee/slack_notifier_extension'
+require_relative 'slack_notifiee/version'
 
 module SlackNotifiee
   def enable
