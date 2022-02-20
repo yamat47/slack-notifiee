@@ -1,3 +1,5 @@
+![CI Status](https://github.com/yamat47/slack_notifiee/actions/workflows/main.yml/badge.svg) [![Gem Version](https://badge.fury.io/rb/slack_notifiee.svg)](https://badge.fury.io/rb/slack_notifiee) [![Maintainability](https://api.codeclimate.com/v1/badges/d65ff4f4ab461f8ee938/maintainability)](https://codeclimate.com/github/yamat47/slack_notifiee/maintainability)
+
 # SlackNotifiee
 SlackNotifiee is a debugging and testing tool for [slack-notifier/slack-notifier](https://github.com/slack-notifier/slack-notifier). Using this gem, you can access the notifications sent by slack-notifier in your code (without Slack App).
 
