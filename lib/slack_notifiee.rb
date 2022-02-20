@@ -20,7 +20,7 @@ module SlackNotifiee
   end
 
   def notifications
-    _storage_path.children.map(&:read).map do |notification_content|
+    _storage_path.children.sort.map(&:read).map do |notification_content|
       ::SlackNotifiee::Notification.build_from_json(notification_content)
     end
   end

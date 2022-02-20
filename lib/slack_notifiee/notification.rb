@@ -19,7 +19,7 @@ module SlackNotifiee
         blocks: attributes['blocks'],
         text: attributes['text'],
         icon_emoji: attributes['icon_emoji'],
-        icon_url: ::URI.parse(attributes['icon_url']),
+        icon_url: attributes['icon_url'].nil? ? nil : ::URI.parse(attributes['icon_url']),
         datetime: ::Time.parse(attributes['datetime'])
       )
     end
@@ -34,6 +34,20 @@ module SlackNotifiee
       @icon_emoji = attributes[:icon_emoji]
       @icon_url = attributes[:icon_url]
       @datetime = attributes[:datetime]
+    end
+
+    def attributes
+      {
+        webhook_url: webhook_url,
+        username: username,
+        channel: channel,
+        attachments: attachments,
+        blocks: blocks,
+        text: text,
+        icon_emoji: icon_emoji,
+        icon_url: icon_url,
+        datetime: datetime
+      }
     end
   end
 end
