@@ -4,6 +4,7 @@ require 'fileutils'
 require 'pathname'
 require 'ulid'
 
+require_relative 'slack_notifiee/notification'
 require_relative 'slack_notifiee/slack_notifier_extension'
 require_relative 'slack_notifiee/version'
 
@@ -20,7 +21,7 @@ module SlackNotifiee
 
   def notifications
     _storage_path.children.map(&:read).map do |notification_content|
-      JSON.parse(notification_content)
+      ::SlackNotifiee::Notification.build_from_json(notification_content)
     end
   end
 

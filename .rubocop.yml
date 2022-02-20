@@ -6,6 +6,23 @@ AllCops:
   TargetRubyVersion: 2.7
   NewCops: enable
 
+Layout/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*.rb
+    - slack_notifiee.gemspec
+
+Metrics/MethodLength:
+  Max: 12
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
@@ -16,6 +33,3 @@ Style/StringLiterals:
 Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: single_quotes
-
-Layout/LineLength:
-  Max: 120
