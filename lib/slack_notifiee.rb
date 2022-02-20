@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'slack_notifiee/http_client'
+require 'fileutils'
+require 'pathname'
+require 'ulid'
+
 require_relative 'slack_notifiee/slack_notifier_extension'
 require_relative 'slack_notifiee/version'
 
@@ -31,7 +34,7 @@ module SlackNotifiee
   end
 
   def _override_http_client
-    ::Slack::Notifier.class_eval { prepend SlackNotifierExtension }
+    ::Slack::Notifier.class_eval { prepend ::SlackNotifiee::SlackNotifierExtension }
   end
 
   module_function :enable, :store_notification, :notifications, :_storage_path, :_reset_storage, :_override_http_client

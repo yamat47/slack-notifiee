@@ -30,7 +30,11 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # Uncomment to register a new dependency of your gem
+  spec.add_dependency 'fileutils'
+  spec.add_dependency 'pathname'
   spec.add_dependency 'slack-notifier'
+  spec.add_dependency 'time'
+  spec.add_dependency 'ulid'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rubocop'

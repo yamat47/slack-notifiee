@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'http_client'
+
 module SlackNotifiee
   module SlackNotifierExtension
     def initialize(webhook_url, options = {}, &block)
