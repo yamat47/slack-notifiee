@@ -1,8 +1,39 @@
 # frozen_string_literal: true
 
+require_relative "slack_notifiee/http_client"
+require_relative "slack_notifiee/slack_notifier_extension"
 require_relative "slack_notifiee/version"
 
 module SlackNotifiee
-  class Error < StandardError; end
-  # Your code goes here...
+  def enable
+    _reset_storage
+    _override_http_client
+  end
+
+  def store_notification(notification)
+    filepath = _storage_path + "#{ULID.generate}.json"
+    File.open(filepath, 'w') { |file| JSON.dump(notification, file) }
+  end
+
+  def notifications
+    _storage_path.children.map(&:read).map do |notification_content|
+      JSON.parse(notification_content)
+    end
+  end
+
+  def _storage_path
+    Pathname('tmp/slack-notifiee')
+  end
+
+  def _reset_storage
+    ::FileUtils.mkdir_p(_storage_path)
+    ::FileUtils.rm_f(_storage_path.children)
+  end
+
+  def _override_http_client
+    ::Slack::Notifier.class_eval { prepend SlackNotifierExtension }
+  end
+
+  module_function :enable, :store_notification, :notifications, :_storage_path, :_reset_storage, :_override_http_client
+  private_class_method :_storage_path, :_reset_storage, :_override_http_client
 end
