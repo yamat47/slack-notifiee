@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ['Yamaguchi Takuya']
   spec.email = ['yamat47.thirddown@gmail.com']
 
-  spec.summary = 'Notifications content inspector from slack-notifier/slack-notifier.'
-  spec.description = 'SlackNotifiee is a gem that allows you to inspect the slack notification from slack-notifier.'
+  spec.summary = 'Notifications inspector for slack-notifier/slack-notifier.'
+  spec.description = 'SlackNotifiee is a gem that allows you to inspect the slack notifications from slack-notifier.'
   spec.homepage = 'https://github.com/yamat47/slack_notifiee'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 2.7.0'
