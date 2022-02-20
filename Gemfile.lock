@@ -1,0 +1,19 @@
+PATH
+  remote: .
+  specs:
+    slack_notifiee (0.1.0)
+      slack-notifier
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    slack-notifier (2.4.0)
+
+PLATFORMS
+  arm64-darwin-21
+
+DEPENDENCIES
+  slack_notifiee!
+
+BUNDLED WITH
+   2.3.3
